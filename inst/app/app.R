@@ -122,6 +122,7 @@ ui <- dashboardPage(
               ),
 
       tabItem(tabName = "data",
+              uiOutput("desc")
               )
 
 
@@ -247,6 +248,15 @@ server <- function(input, output){
                color = "blue")})
   })
 
+
+  # data desc
+  output$desc <- renderUI({
+
+    knitr::knit("data-desc.qmd", quiet = TRUE) |>
+      markdown::markdownToHTML(fragment.only = TRUE) |>
+      HTML()
+
+  })
 
 
 
