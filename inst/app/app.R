@@ -14,7 +14,8 @@ ui <- dashboardPage(
   dashboardSidebar(
     sidebarMenu(
     menuItem("Overall ranking", tabName = "overall", icon = icon("ranking-star")),
-    menuItem("Launch count", icon = icon("rocket"), tabName = "launch")
+    menuItem("Launch count", icon = icon("rocket"), tabName = "launch"),
+    menuItem("Data description", icon = icon("database"), tabName = "data")
   )
   ),
   dashboardBody(
@@ -48,6 +49,13 @@ ui <- dashboardPage(
 
       tabItem(tabName = "overall",
               fluidRow(
+                box(
+                  title = htmlOutput("itp_tbl"), width = 12, solidHeader = F, status = "primary",
+                  h4("The table and plot show the ranking of top 10 entities with the highest total object launched to the outer space in the selected year.")
+                )
+              ),
+
+              fluidRow(
                 column(12,
                        wellPanel(sliderInput(
                          inputId = "year",
@@ -74,6 +82,7 @@ ui <- dashboardPage(
 
 
       tabItem(tabName = "launch",
+
               fluidRow(
                 column(6,
                        wellPanel(selectizeInput(
@@ -90,6 +99,17 @@ ui <- dashboardPage(
 
               fluidRow(
                 box(
+                  title = htmlOutput("itp_cumu"), width = 6, solidHeader = F, status = "primary",
+                  p("The cumulative plot shows the cumulative count of the total object launched into outer space of the selected entity.")
+                ),
+                box(
+                  title = htmlOutput("itp_numcount"), width = 6, solidHeader = F, status = "primary",
+                  p("The object count plot shows the count of object launeded into outer space of the selected entity in each year.")
+                )
+              ),
+
+              fluidRow(
+                box(
                   title = htmlOutput("title_time"), width = 6, solidHeader = TRUE, status = "primary",
                   plotlyOutput("cumuplot", height = 400)
                 ),
@@ -99,6 +119,9 @@ ui <- dashboardPage(
                   plotlyOutput("yearplot", height = 400)
                 )
               )
+              ),
+
+      tabItem(tabName = "data",
               )
 
 
@@ -127,6 +150,18 @@ server <- function(input, output){
 
   output$title_yearplot <- renderText(
     "<h4><b>Number of objects launched of each year</b></h4>"
+  )
+
+  output$itp_tbl <- renderText(
+    "<h4><b>Interpretation of ranking table and plot</b></h4>"
+  )
+
+  output$itp_cumu <- renderText(
+    "<h4><b>Interpretation of cumulative plot</b></h4>"
+  )
+
+  output$itp_numcount <- renderText(
+    "<h4><b>Interpretation of object count plot</b></h4>"
   )
 
   # Overall ranking output
