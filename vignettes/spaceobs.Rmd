@@ -1,0 +1,79 @@
+---
+title: "Space Objects Launched"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Space Objects Launched}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The dataset used in this package is from [Our World in Data](https://ourworldindata.org/grapher/yearly-number-of-objects-launched-into-outer-space?facet=none#explore-the-data).
+
+This vignette is providing the information on the dataset and functions in this spaceobs package.
+
+### Use package
+
+Using `library()` to load `spaceobs` package.
+```{r setup}
+library(spaceobs)
+```
+
+### Dataset
+
+Data description of `space_objects` dataset
+```{r eval=FALSE}
+space_objects
+```
+
+| **Variable** | **Description**                                    |
+|--------------|----------------------------------------------------|
+| Entity       | Entity, country or other entity                    |
+| Code         | Entity code, country or other entity code          |
+| Year         | Year                                               |
+| num_objects  | Annual number of objects launched into outer space |
+
+### Entity list
+Using `entity_list()` function to get the list of the entity that is in the `space_objects` dataset.
+```{r}
+entity_list() |> 
+  head()
+```
+
+### Year range of entity
+Using `year_entity()` function and specify the entity name from the `entity_list()` function to get the range of year of the selected entity.
+
+```{r}
+year_entity("United States")
+```
+
+### Shiny App
+In this package there is build in shiny app that include the analysis from of the `space_objects` dataset from `run_app()` function.
+
+**Purpose of Shiny App**
+
+As space exploration continues to expand, it is essential to track and analyze the growing number of objects launched into orbit or beyond.
+
+The purpose of this analysis is to:  
+
+  - Highlight the entity that launched the highest number of objects into the outer space.  
+  - Explore the space technological advancement from the number of objects launched into the outer space.  
+  - Raise awareness of the overall trends in space exploration.  
+  
+The app use an interactive plots to allow users to observe the information of their interest year and entity that are in the data.
+
+```{r eval=FALSE}
+run_app()
+```
+
+
+
+
+
+

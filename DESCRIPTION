@@ -16,8 +16,11 @@ Imports:
 Suggests: 
     DT,
     kableExtra,
+    knitr,
     plotly,
+    rmarkdown,
     shiny,
     shinydashboard,
     shinythemes,
     tidyverse
+VignetteBuilder: knitr

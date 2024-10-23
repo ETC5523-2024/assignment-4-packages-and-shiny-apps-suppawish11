@@ -16,14 +16,17 @@ entity_list <- function() {
 
 
 #' Year range of selected entity
+#' @description
+#' Print the range of the year for selected entity
 #'
 #' @param entity
+#' The entity name obtained from `entity_list()`
 #'
 #' @return Return range of the year of the selected entity in the space_objects dataset
 #' @export
 #'
 #' @examples
-#' year_entity()
+#' year_entity("United States")
 year_entity <- function(entity) {
 
   if(!(entity %in% spaceobs::entity_list())) {
@@ -32,7 +35,7 @@ year_entity <- function(entity) {
 
   else {
     entity <- spaceobs::space_objects |>
-    dplyr::filter(.data$entity == {{entity}})
+    dplyr::filter(entity == !!entity)
 
   range(entity$year)
   }

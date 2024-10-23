@@ -7,14 +7,14 @@
 year_entity(entity)
 }
 \arguments{
-\item{entity}{}
+\item{entity}{The entity name obtained from \code{entity_list()}}
 }
 \value{
 Return range of the year of the selected entity in the space_objects dataset
 }
 \description{
-Year range of selected entity
+Print the range of the year for selected entity
 }
 \examples{
-year_entity()
+year_entity("United States")
 }
