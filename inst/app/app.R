@@ -4,6 +4,7 @@ library(spaceobs)
 library(kableExtra)
 library(plotly)
 library(shinydashboard)
+library(DT)
 
 
 # ui
@@ -50,8 +51,10 @@ ui <- dashboardPage(
       tabItem(tabName = "overall",
               fluidRow(
                 box(
-                  title = htmlOutput("itp_tbl"), width = 12, solidHeader = F, status = "primary",
-                  h4("The table and plot show the ranking of top 10 entities with the highest total object launched to the outer space in the selected year.")
+                  title = htmlOutput("itp_tbl"), width = 12, solidHeader = F, status = "primary", collapsible = TRUE, collapsed = TRUE,
+                  p("By selecting the year that you are interested in from the slider bar below,
+                  the table will show the top 10 ranking of the entity based on the total objects launched in the selected year since 1957.
+                    Moreover, it will generate a bar plot in the left side showing the top 10 ranking same as the table shown on the right side.")
                 )
               ),
 
@@ -99,12 +102,14 @@ ui <- dashboardPage(
 
               fluidRow(
                 box(
-                  title = htmlOutput("itp_cumu"), width = 6, solidHeader = F, status = "primary",
-                  p("The cumulative plot shows the cumulative count of the total object launched into outer space of the selected entity.")
+                  title = htmlOutput("itp_cumu"), width = 6, solidHeader = F, status = "primary", collapsible = TRUE, collapsed = TRUE,
+                  p("By selecting the entity that you are interested in the drop down box above,
+                    it will generate a time serie plot showing the cumulative count of the total object launched into outer space of the selected entity in each year.")
                 ),
                 box(
-                  title = htmlOutput("itp_numcount"), width = 6, solidHeader = F, status = "primary",
-                  p("The object count plot shows the count of object launeded into outer space of the selected entity in each year.")
+                  title = htmlOutput("itp_numcount"), width = 6, solidHeader = F, status = "primary", collapsible = TRUE, collapsed = TRUE,
+                  p("By selecting the entity that you are interested in the drop down box above,
+                    it will generate a time serie plot showing the count of object launeded into outer space of the selected entity in each year.")
                 )
               ),
 
@@ -122,7 +127,9 @@ ui <- dashboardPage(
               ),
 
       tabItem(tabName = "data",
-              uiOutput("desc")
+              uiOutput("desc"),
+
+              fluidRow(wellPanel(dataTableOutput("datatable")))
               )
 
 
@@ -154,15 +161,15 @@ server <- function(input, output){
   )
 
   output$itp_tbl <- renderText(
-    "<h4><b>Interpretation of ranking table and plot</b></h4>"
+    "<h4><b>Guide for interpretation of ranking table and plot</b></h4>"
   )
 
   output$itp_cumu <- renderText(
-    "<h4><b>Interpretation of cumulative plot</b></h4>"
+    "<h4><b>Guide for interpretation of cumulative plot</b></h4>"
   )
 
   output$itp_numcount <- renderText(
-    "<h4><b>Interpretation of object count plot</b></h4>"
+    "<h4><b>Guide for interpretation of object count plot</b></h4>"
   )
 
   # Overall ranking output
@@ -243,7 +250,7 @@ server <- function(input, output){
                  summarize(total = sum(num_objects)) |>
                  select(total) |>
                  pull(total),
-               "Total objects launched",
+               "Total objects launched in 2023",
                icon = icon("rocket"),
                color = "blue")})
   })
@@ -256,6 +263,10 @@ server <- function(input, output){
       markdown::markdownToHTML(fragment.only = TRUE) |>
       HTML()
 
+  })
+
+  output$datatable <- renderDataTable({
+    space_objects
   })
 
 

@@ -15,6 +15,7 @@ Imports:
     janitor,
     readr
 Suggests: 
+    DT,
     kableExtra,
     plotly,
     shiny,
