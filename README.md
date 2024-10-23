@@ -1,24 +1,14 @@
----
-output: github_document
----
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
-```{r, include = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
-)
-```
 
 # spaceobs
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of spaceobs is to provide an analysis of the data set of yearly number of objects launched into outer space through shiny app build inside this package.
+The goal of spaceobs is to provide an analysis of the data set of yearly
+number of objects launched into outer space through shiny app build
+inside this package.
 
 ## Installation
 
@@ -31,35 +21,40 @@ remotes::install_github("ETC5523-2024/assignment-4-packages-and-shiny-apps-suppa
 
 ## Example
 
-```{r example}
+``` r
 library(spaceobs)
 ```
 
 #### Dataset
-```{r eval=FALSE}
+
+``` r
 space_objects
 ```
 
 To view the yearly number of objects launched into outer space dataset.
 
 #### Entity list
-```{r}
+
+``` r
 entity_list() |> 
   head()
+#> [1] "APSCO"     "Algeria"   "Angola"    "Arabsat"   "Argentina" "Armenia"
 ```
 
 To retrieve the entity names that are in the `space_objects` dataset.
 
 #### Year range of selected entity
-```{r}
+
+``` r
 year_entity("United States")
+#> [1] 1958 2023
 ```
 
-To retrieve the year range of the selected entity in the `space_objects` dataset.
+To retrieve the year range of the selected entity in the `space_objects`
+dataset.
 
 #### Launching Shiny App
 
-```{r eval=FALSE}
+``` r
 run_app()
 ```
-
