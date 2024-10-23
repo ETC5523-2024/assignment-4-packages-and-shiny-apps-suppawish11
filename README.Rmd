@@ -20,6 +20,8 @@ knitr::opts_chunk$set(
 
 The goal of spaceobs is to provide an analysis of the data set of yearly number of objects launched into outer space through shiny app build inside this package.
 
+Tou can access the package website through this [link](https://etc5523-2024.github.io/assignment-4-packages-and-shiny-apps-suppawish11/)
+
 ## Installation
 
 You can install the development version of spaceobs like so:
