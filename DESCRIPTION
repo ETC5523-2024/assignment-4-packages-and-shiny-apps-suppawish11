@@ -1,5 +1,5 @@
 Package: spaceobs
-Title: Data for yearly number of objects launched into outer space of every entity
+Title: Spaceobs package
 Version: 0.0.0.9000
 Authors@R: 
     person("Suppawish", "Siriamnat", , "ssir0015@student.monash.edu", role = c("aut", "cre"))
