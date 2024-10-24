@@ -4,11 +4,9 @@
 \name{spaceobs-package}
 \alias{spaceobs}
 \alias{spaceobs-package}
-\title{spaceobs Package}
+\title{spaceobs: Spaceobs package}
 \description{
-This package contain a yearly number of objects launched into outer space dataset
-with shiny dashboard app showing the analysis of this dataset.
-Learn more about \code{spaceobs} from the vignette: \code{browseVignettes(package = "spaceobs")}
+This package contain a data set of yearly number of objects launched into outer space and shiny app for analysis.
 }
 \seealso{
 Useful links:
@@ -21,3 +19,4 @@ Useful links:
 \strong{Maintainer}: Suppawish Siriamnat \email{ssir0015@student.monash.edu}
 
 }
+\keyword{internal}
