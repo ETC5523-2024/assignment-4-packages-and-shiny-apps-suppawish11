@@ -13,7 +13,6 @@
 #' }
 #'
 #'
-#'
 #' @export
 run_app <- function() {
   app_dir <- system.file("app", package = "spaceobs")
