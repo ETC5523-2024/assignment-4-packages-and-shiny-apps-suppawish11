@@ -71,12 +71,12 @@ ui <- dashboardPage(
               ),
 
               fluidRow(
-                box(
+                shinydashboard::box(
                   title = htmlOutput("title_rank"), width = 6, solidHeader = TRUE, status = "primary",
                   htmlOutput("ranking", height = 500)
                 ),
 
-                box(
+                shinydashboard::box(
                   title = htmlOutput("title_rankplot"), width = 6, solidHeader = TRUE, status = "primary",
                   plotlyOutput("rank_plot", height = 400)
                 )
@@ -101,12 +101,12 @@ ui <- dashboardPage(
                 ),
 
               fluidRow(
-                box(
+                shinydashboard::box(
                   title = htmlOutput("itp_cumu"), width = 6, solidHeader = F, status = "primary", collapsible = TRUE, collapsed = TRUE,
                   p("By selecting the entity that you are interested in the drop down box above,
                     it will generate a time serie plot showing the cumulative count of the total object launched into outer space of the selected entity in each year.")
                 ),
-                box(
+                shinydashboard::box(
                   title = htmlOutput("itp_numcount"), width = 6, solidHeader = F, status = "primary", collapsible = TRUE, collapsed = TRUE,
                   p("By selecting the entity that you are interested in the drop down box above,
                     it will generate a time serie plot showing the count of object launeded into outer space of the selected entity in each year.")
@@ -114,12 +114,12 @@ ui <- dashboardPage(
               ),
 
               fluidRow(
-                box(
+                shinydashboard::box(
                   title = htmlOutput("title_time"), width = 6, solidHeader = TRUE, status = "primary",
                   plotlyOutput("cumuplot", height = 400)
                 ),
 
-                box(
+                shinydashboard::box(
                   title = htmlOutput("title_yearplot"), width = 6, solidHeader = TRUE, status = "primary",
                   plotlyOutput("yearplot", height = 400)
                 )
