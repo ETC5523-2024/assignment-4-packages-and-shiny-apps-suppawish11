@@ -5,7 +5,6 @@ library(spaceobs)
 library(kableExtra)
 library(plotly)
 library(shinydashboard)
-library(DT)
 library(forcats)
 
 
