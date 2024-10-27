@@ -17,10 +17,11 @@ Suggests:
     knitr,
     DT,
     kableExtra,
-    ggplot2, 
+    ggplot2,
     plotly,
     rmarkdown,
     shiny,
-    shinydashboard
+    shinydashboard,
+    forcats
 VignetteBuilder: knitr
 URL: https://etc5523-2024.github.io/assignment-4-packages-and-shiny-apps-suppawish11/
