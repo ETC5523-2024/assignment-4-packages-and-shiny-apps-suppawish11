@@ -12,6 +12,12 @@
 #' run_app()
 #' }
 #'
+#' @import shiny
+#' @import ggplot2
+#' @import kableExtra
+#' @importFrom plotly renderPlotly plotlyOutput
+#' @import shinydashboard
+#' @import forcats
 #'
 #' @export
 run_app <- function() {

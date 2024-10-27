@@ -12,16 +12,15 @@ Depends:
     R (>= 2.10)
 LazyData: true
 Imports: 
-    dplyr
-Suggests: 
-    knitr,
-    DT,
-    kableExtra,
-    ggplot2,
-    plotly,
-    rmarkdown,
+    dplyr,
     shiny,
     shinydashboard,
-    forcats
+    forcats,
+    kableExtra,
+    ggplot2,
+    plotly
+Suggests: 
+    knitr,
+    rmarkdown
 VignetteBuilder: knitr
 URL: https://etc5523-2024.github.io/assignment-4-packages-and-shiny-apps-suppawish11/

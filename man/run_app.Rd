@@ -17,5 +17,4 @@ This calls the shiny app based on the space_object dataset with analysis shown i
 run_app()
 }
 
-
 }
